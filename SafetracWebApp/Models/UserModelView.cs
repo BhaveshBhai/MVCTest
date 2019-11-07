@@ -48,5 +48,6 @@ namespace SafetracWebApp.Models
             }
 
         }
+
     }
 }
