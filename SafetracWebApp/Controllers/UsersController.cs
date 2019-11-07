@@ -43,5 +43,15 @@ namespace SafetracWebApp.Controllers
             int TotalRecord = lstUsers.Select(x => x.MaxRows.Value).First();
             return Json(new { draw = draw, recordsFiltered = TotalRecord, recordsTotal = TotalRecord, data = lstUsers }, JsonRequestBehavior.AllowGet);
         }
+        public ActionResult Add()
+        {
+            return PartialView("_AddUsers");
+        }
+        [HttpPost]
+        public ActionResult AddUsers(User users)
+        {
+            var result = userModel.AddUser(users);
+            return RedirectToAction("Index");
+        }
     }
 }
